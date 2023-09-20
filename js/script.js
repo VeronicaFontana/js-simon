@@ -3,6 +3,8 @@ const numberBar = document.querySelector(".number-bar");
 const timerBar = document.querySelector(".timer-bar");
 const timer = document.querySelector(".timer");
 const restart = document.querySelector("button");
+const result = document.querySelector(".result");
+const esito = document.querySelector(".esito");
 const numArr = [];
 const userArr = [];
 let counterSecondi = 6;
@@ -14,8 +16,6 @@ for(i = 0; i < 5; i++){
   span.innerHTML = number;
   numArr.push(number);
   console.log(numArr);
-
-  container.append(numberBar);
   numberBar.append(span);
 }
 
@@ -44,25 +44,28 @@ function startCountdown(){
 		}else{
       numberBar.classList.add("d-none");
       delayPrompt();
+      esito.classList.remove("d-none");
 		}
 	},1000)
 }
 
 function delayPrompt(){
-  let t = 0;
   const interval = setInterval(function(){
-    t++;
-    userArr.push(prompt_function());
-    console.log(userArr);
+    for(t = 0; t < 5; t++){
+      const number = promptFunction();
+      const span = document.createElement("span");
+      span.innerHTML = number;
+      userArr.push(number);
+      result.append(span);
+
+      console.log(userArr);
+    }
     clearInterval(interval);
   }, 1000);
 } 
 
-
-
-function prompt_function(){
+function promptFunction(){
   return prompt();
 }
 
 
-  
