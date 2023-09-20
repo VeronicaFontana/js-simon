@@ -82,7 +82,7 @@ function delayPrompt(){
 } 
 
 function promptFunction(){
-  return prompt();
+  return prompt("Scrivi il numero che hai visto");
 }
 
 function confronto(){
