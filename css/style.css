@@ -7,9 +7,12 @@
 .number-bar, .timer-bar, .result-bar{
   border: 1px solid red;
   height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.number-bar span{
+.number-bar span, .timer-bar div{
   font-size: 4rem;
   font-weight: bold;
   margin: 0 20px;
