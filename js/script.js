@@ -13,12 +13,15 @@ let errorArr = [];
 let correctArr = [];
 let messaggio = document.querySelector(".messaggio");
 let counterSecondi = 6;
+const span = [];
+const spanPrompt = [];
 
 
 startBtn.addEventListener("click", function(){
   start();
   numberBar.classList.remove("d-none");
   timerBar.classList.remove("d-none");
+  startBtn.classList.add("d-none");
 })
 
 
@@ -33,11 +36,11 @@ function start(){
 function randomNumber(){
   for(i = 0; i < 5; i++){
     const number = randomizer(1, 10);
-    const span = document.createElement("span");
-    span.innerHTML = number;
+    span[i] = document.createElement("span");
+    span[i].innerHTML = number;
     numArr.push(number);
     console.log(numArr);
-    numberBar.append(span);
+    numberBar.append(span[i]);
   }
 }
 
@@ -66,10 +69,10 @@ function delayPrompt(){
   const interval = setInterval(function(){
     for(t = 0; t < 5; t++){
       const number = promptFunction();
-      const span = document.createElement("span");
-      span.innerHTML = number;
+      spanPrompt[t] = document.createElement("span");
+      spanPrompt[t].innerHTML = number;
       userArr.push(number);
-      result.append(span);
+      result.append(spanPrompt[t]);
 
       console.log(userArr);
     }
@@ -86,7 +89,6 @@ function confronto(){
   let error = 0;
   let correct = 0;
   
-
   for(i = 0; i < 5; i++){
     if(numArr[i] == userArr[i]){
       correct++;
@@ -119,6 +121,14 @@ function confronto(){
     timerBar.classList.add("d-none");
     restartBtn.classList.add("d-none");
 
+    for (let i = 0; i < 5; i++) {
+      span[i].remove();
+    }
+
+    for (let t = 0; t < 5; t++) {
+      spanPrompt[t].remove();
+    }
+
     numArr = [];
     userArr = [];
     correctArr = [];
@@ -126,4 +136,7 @@ function confronto(){
     counterSecondi = 6;
     console.log("restart eseguito")
     console.log([numArr, userArr, correctArr, errorArr])
+    messaggio.innerHTML = "";
+
+    startBtn.classList.remove("d-none");
   })
