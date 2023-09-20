@@ -1,0 +1,16 @@
+.container{
+  border: 1px solid black;
+  height: 100vh;
+  padding: 20px;
+}
+
+.number-bar, .timer-bar, .result-bar{
+  border: 1px solid red;
+  height: 300px;
+}
+
+.number-bar span{
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0 20px;
+}
