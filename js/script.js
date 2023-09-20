@@ -1,6 +1,6 @@
 const container = document.querySelector(".container");
 const numberBar = document.querySelector(".number-bar");
-const numberArr = [];
+let counterSecondi = 6;
 
 
 for(i = 0; i < 5; i++){
@@ -13,6 +13,8 @@ for(i = 0; i < 5; i++){
   container.append(numberBar);
   numberBar.append(span);
 }
+
+startCountdown();
 
 
 
@@ -28,3 +30,14 @@ function randomizer(min, max){
   return random;
 }
 
+function startCountdown(){
+	setTimeout(function(){
+		counterSecondi--;
+		console.log(counterSecondi);
+		if(counterSecondi > 0){
+			startCountdown(); 
+		}else{
+			console.log("fine");
+		}
+	},1000)
+}
