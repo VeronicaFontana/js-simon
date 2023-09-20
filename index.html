@@ -13,15 +13,18 @@
 </head>
 <body>
   <div class="container d-flex flex-column ">
-    <div class="number-bar">
+    <button id="btn-start">Inizia</button>
+    <div class="number-bar d-none">
     </div>
-    <div class="timer-bar flex-column">
+    <div class="timer-bar flex-column d-none">
       <div class="timer"></div>
     </div>
-    <div class="result-bar d-flex flex-column  fw-bold fs-3">
-      <span class="esito d-none mx-3">I tuoi numeri sono:</span>
+    <div class="result-bar d-flex flex-column fw-bold fs-3 d-none">
+      <span class="esito mx-3">I tuoi numeri sono:</span>
       <div class="result"></div>
+      <span class="messaggio"></span>
     </div>
+    <button id="btn-restart" class="d-none">Restart</button>
   </div>
 
   <script src="js/script.js"></script>
